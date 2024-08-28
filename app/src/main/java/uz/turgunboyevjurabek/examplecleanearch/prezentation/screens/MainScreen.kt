@@ -18,6 +18,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -80,8 +82,6 @@ fun ListUI(arrayList:ArrayList<GetImageResponseItem>) {
 fun CardUI(getImageResponseItem: GetImageResponseItem) {
     Card(
         modifier = Modifier
-            .height(getImageResponseItem.height.dp)
-            .width(getImageResponseItem.width.dp)
             .padding(12.dp)
     ) {
         AsyncImage(
@@ -91,6 +91,7 @@ fun CardUI(getImageResponseItem: GetImageResponseItem) {
                 .build(),
             placeholder = painterResource(id = R.drawable.ic_launcher_foreground),
             error = painterResource(id = R.drawable.ic_launcher_background),
+            contentScale = ContentScale.Crop,
             contentDescription = null
         )
     }
@@ -112,7 +113,12 @@ fun LoadingView() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CircularProgressIndicator()
+        CircularProgressIndicator(
+            modifier = Modifier
+                .width(64.dp)
+                .height(64.dp),
+            trackColor = Color.Gray,
+        )
     }
 }
 @Composable
