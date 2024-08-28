@@ -32,11 +32,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -79,7 +80,7 @@ dependencies {
      * Dagger-hilt
      */
     implementation ("com.google.dagger:hilt-android:2.49")
-    kapt ("com.google.dagger:hilt-compiler:2.48")
+    kapt ("com.google.dagger:hilt-compiler:2.49")
     implementation ("androidx.hilt:hilt-navigation-fragment:1.2.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
@@ -125,5 +126,7 @@ dependencies {
     /**
      * Coil
      */
-    implementation("io.coil-kt:coil-compose:1.3.2")
+    implementation("io.coil-kt:coil:2.3.0") // Core library
+    implementation("io.coil-kt:coil-compose:2.3.0") // for Jetpack Compose
+
 }

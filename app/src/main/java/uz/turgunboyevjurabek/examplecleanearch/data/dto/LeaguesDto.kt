@@ -1,9 +1,5 @@
 package uz.turgunboyevjurabek.examplecleanearch.data.dto
 
-import uz.turgunboyevjurabek.examplecleanearch.domein.models.Leagues
-import uz.turgunboyevjurabek.examplecleanearch.domein.models.Paging
-import uz.turgunboyevjurabek.examplecleanearch.domein.models.Response
-
 data class LeaguesDtoList(
     val leaguesDto:List<LeaguesDto>,
 )

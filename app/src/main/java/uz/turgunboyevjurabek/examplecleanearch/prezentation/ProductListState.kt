@@ -1,7 +1,6 @@
 package uz.turgunboyevjurabek.examplecleanearch.prezentation
 
 import uz.turgunboyevjurabek.examplecleanearch.domein.models.GetImageResponseItem
-import uz.turgunboyevjurabek.examplecleanearch.domein.models.Leagues
 
 sealed class CatsListState {
     object Loading : CatsListState()

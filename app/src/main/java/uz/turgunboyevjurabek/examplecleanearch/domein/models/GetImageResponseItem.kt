@@ -7,7 +7,7 @@ data class GetImageResponseItem(
     @SerializedName("breeds")
     val breeds: List<Any>,
     @SerializedName("favourite")
-    val favourite: Favourite,
+    val favourite: Favourite?,
     @SerializedName("height")
     val height: Int,
     @SerializedName("id")

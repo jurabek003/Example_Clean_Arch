@@ -17,7 +17,7 @@ data class GetCatsDto(
     @SerializedName("width")
     val width: Int
 )
-
 data class GetCatsDtoList(
     val catsDto: List<GetCatsDto>
 )
+

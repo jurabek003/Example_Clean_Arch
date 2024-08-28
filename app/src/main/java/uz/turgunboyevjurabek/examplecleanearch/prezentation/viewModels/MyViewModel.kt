@@ -15,7 +15,7 @@ import uz.turgunboyevjurabek.examplecleanearch.prezentation.CatsListState
 import javax.inject.Inject
 
 @HiltViewModel
-class LeaguesViewModel @Inject constructor(
+class MyViewModel @Inject constructor(
     private val getCatsUseCase: GetCatsUseCase
 ):ViewModel() {
     private val _state = MutableStateFlow<CatsListState>(CatsListState.Loading)
