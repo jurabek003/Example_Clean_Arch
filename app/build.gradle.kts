@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id ("com.google.dagger.hilt.android")
-    id ("kotlin-kapt")
+    id ("com.google.devtools.ksp") version "1.9.0-1.0.13"
 }
 
 android {
@@ -79,22 +79,23 @@ dependencies {
     /**
      * Dagger-hilt
      */
-    implementation ("com.google.dagger:hilt-android:2.49")
-    kapt ("com.google.dagger:hilt-compiler:2.49")
-    implementation ("androidx.hilt:hilt-navigation-fragment:1.2.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+
+    implementation ("com.google.dagger:hilt-android:2.48")
+    ksp ("com.google.dagger:hilt-android-compiler:2.48")
+    implementation (libs.androidx.hilt.navigation.fragment)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     /**
      * Retrofit for API requests
      */
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-moshi:2.4.0")
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.converter.moshi)
 
     /**
      * ViewModel
      */
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     /**
      * Kotlin Coroutines
@@ -104,9 +105,9 @@ dependencies {
     /**
      * Room database
      */
-    implementation("androidx.room:room-runtime:2.6.1")
+    implementation ("androidx.room:room-runtime:2.6.0-alpha01")
+    ksp ("androidx.room:room-compiler:2.6.0-alpha01")
     implementation("androidx.room:room-ktx:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
 
     /**
      * DataStore

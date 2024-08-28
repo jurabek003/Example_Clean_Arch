@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import uz.turgunboyevjurabek.examplecleanearch.domein.models.GetImageResponseItem
 import uz.turgunboyevjurabek.examplecleanearch.domein.useCase.GetCatsUseCase
-import uz.turgunboyevjurabek.examplecleanearch.prezentation.CatsListState
+import uz.turgunboyevjurabek.examplecleanearch.prezentation.states.CatsListState
 import javax.inject.Inject
 
 @HiltViewModel

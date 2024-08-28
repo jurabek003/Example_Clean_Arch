@@ -14,6 +14,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,7 +27,7 @@ import coil.request.ImageRequest
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import uz.turgunboyevjurabek.examplecleanearch.R
 import uz.turgunboyevjurabek.examplecleanearch.domein.models.GetImageResponseItem
-import uz.turgunboyevjurabek.examplecleanearch.prezentation.CatsListState
+import uz.turgunboyevjurabek.examplecleanearch.prezentation.states.CatsListState
 import uz.turgunboyevjurabek.examplecleanearch.prezentation.viewModels.MyViewModel
 
 @Composable
@@ -36,7 +37,10 @@ fun MainScreen(
     viewModel: MyViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.collectAsState()
-    viewModel.fetchCats()
+    LaunchedEffect(Unit) {
+        viewModel.fetchCats()
+    }
+//    viewModel.fetchCats()
     CatsGetContent(state =state.value)
 }
 
@@ -52,7 +56,6 @@ fun CatsGetContent(modifier: Modifier = Modifier,state: CatsListState) {
             val list=ArrayList<GetImageResponseItem>()
             list.addAll(state.listOfCats)
             ProductListSuccess(listOfProducts = list)
-
         }
         is CatsListState.Error->{
             ProductListError(exception = state.exception.message)

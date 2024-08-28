@@ -47,25 +47,6 @@ object NetworkModule {
         })
         .build()
 
-
-
-//    @Singleton
-//    @Provides
-//    fun createRequest(): Request {
-//        return Request.Builder()
-//            .url("https://api-football-v1.p.rapidapi.com/v3/leagues")
-//            .get()
-//            .addHeader("x-rapidapi-key", "8ed42071e3msh8f43f66834e0740p1151d0jsn793a98e19001")
-//            .addHeader("x-rapidapi-host", "api-football-v1.p.rapidapi.com")
-//            .build()
-//    }
-
-//    @Singleton
-//    @Provides
-//    fun executeRequest(okHttpClient: OkHttpClient, request: Request): Response {
-//        return okHttpClient.newCall(request).execute()
-//    }
-
     @Singleton
     @Provides
     fun provideApiService(retrofit: Retrofit): ApiService {
